@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xcl.mapper.TYhMapper">
+    <!-- 定义基础返回集合 -->
+    <resultMap id="BaseResultMap" type="com.xcl.bean.TYh">
+        <id column="c_bh" jdbcType="CHAR" property="cbh" />
+        <result column="c_xm" jdbcType="VARCHAR" property="cxm" />
+        <result column="n_xb" jdbcType="INTEGER" property="nxb" />
+        <result column="d_csrq" jdbcType="DATE" property="dcsrq" />
+        <result column="c_xxdz" jdbcType="VARCHAR" property="cxxdz" />
+        <result column="n_zt" jdbcType="INTEGER" property="nzt" />
+        <result column="d_crsj" jdbcType="DATE" property="dcrsj" />
+        <result column="d_gxsj" jdbcType="DATE" property="dgxsj" />
+        <result column="c_zh" jdbcType="VARCHAR" property="czh" />
+        <result column="c_mm" jdbcType="VARCHAR" property="cmm" />
+    </resultMap>
+    
+    <!-- 基本字段定义 -->
+    <sql id="Base_Column_List" >
+        c_bh,c_xm,n_xb,d_csrq,c_xxdz,n_zt,d_crsj,d_gxsj,c_zh,c_mm
+    </sql>
+    
+    <!-- 自定义SQL  -->
+    <sql id="WHERE_SQL">
+       <if test="cbh != null  "> 
+           and c_bh = #{cbh,jdbcType=CHAR}
+       </if>
+       <if test="cxm != null  and cxm != '' "> 
+           and c_xm like '%'||#{cxm,jdbcType=VARCHAR}||'%' 
+       </if>
+       <if test="nxb != null  "> 
+           and n_xb = #{nxb,jdbcType=INTEGER}
+       </if>
+       <if test="dcsrq != null  "> 
+           and d_csrq = #{dcsrq,jdbcType=DATE}
+       </if>
+       <if test="cxxdz != null  and cxxdz != '' "> 
+           and c_xxdz like '%'||#{cxxdz,jdbcType=VARCHAR}||'%' 
+       </if>
+       <if test="nzt != null  "> 
+           and n_zt = #{nzt,jdbcType=INTEGER}
+       </if>
+       <if test="dcrsj != null  "> 
+           and d_crsj = #{dcrsj,jdbcType=DATE}
+       </if>
+       <if test="dgxsj != null  "> 
+       </if>
+       <if test="czh != null  and czh != '' "> 
+           and c_zh like '%'||#{czh,jdbcType=VARCHAR}||'%' 
+       </if>
+       <if test="cmm != null  and cmm != '' "> 
+           and c_mm like '%'||#{cmm,jdbcType=VARCHAR}||'%' 
+       </if>
+    </sql>
+    
+    <!-- 插入一条数据 -->
+    <insert id="insertTYh" parameterType="com.xcl.bean.TYh">
+        insert into db_myweb.t_yh(
+            <include refid="Base_Column_List" />
+        )
+        values(
+            #{cbh,jdbcType=CHAR},
+            #{cxm,jdbcType=VARCHAR},
+            #{nxb,jdbcType=INTEGER},
+            #{dcsrq,jdbcType=DATE},
+            #{cxxdz,jdbcType=VARCHAR},
+            #{nzt,jdbcType=INTEGER},
+            #{dcrsj,jdbcType=DATE},
+            current_timestamp,
+            #{czh,jdbcType=VARCHAR},
+            #{cmm,jdbcType=VARCHAR}
+         )
+    </insert>
+    
+    <!-- 通过主键删除数据 -->
+    <delete id="deleteTYhByPk" parameterType="java.lang.String">
+         delete from db_myweb.t_yh where c_bh = #{cbh,jdbcType=CHAR}
+    </delete>
+    
+    <!-- 通过条件删除数据 -->
+    <delete id="deleteTYhByQuery" parameterType="com.xcl.bean.TYh">
+         delete from db_myweb.t_yh 
+         <where>
+            <include refid="WHERE_SQL" />
+         </where>
+    </delete>
+    
+    <!-- 通过主键修改TYh数据 -->
+    <update id="updateTYhByPk" parameterType="com.xcl.bean.TYh">
+        update db_myweb.t_yh 
+        <set>
+           <if test="cxm != null"> 
+            c_xm = #{cxm,jdbcType=VARCHAR},
+          </if>
+           <if test="nxb != null"> 
+            n_xb = #{nxb,jdbcType=INTEGER},
+          </if>
+           <if test="dcsrq != null"> 
+            d_csrq = #{dcsrq,jdbcType=DATE},
+          </if>
+           <if test="cxxdz != null"> 
+            c_xxdz = #{cxxdz,jdbcType=VARCHAR},
+          </if>
+           <if test="nzt != null"> 
+            n_zt = #{nzt,jdbcType=INTEGER},
+          </if>
+           <if test="dcrsj != null"> 
+            d_crsj = #{dcrsj,jdbcType=DATE},
+          </if>
+            d_gxsj = current_timestamp,
+           <if test="czh != null"> 
+            c_zh = #{czh,jdbcType=VARCHAR},
+          </if>
+           <if test="cmm != null"> 
+            c_mm = #{cmm,jdbcType=VARCHAR},
+          </if>
+        </set>
+        where c_bh = #{cbh,jdbcType=CHAR}
+    </update>
+    
+    <!-- 通过条件查询多条数据 -->
+    <select id="selectTYhsByQuery" parameterType="com.xcl.bean.TYh" resultMap="BaseResultMap">
+       select 
+            <include refid="Base_Column_List" />
+       from db_myweb.t_yh
+       <where>
+            <include refid="WHERE_SQL" />
+       </where>
+     </select>
+     
+    <!-- 通过主键查询信息 -->
+    <select id="selectTYhByPk" parameterType="java.lang.String" resultMap="BaseResultMap">
+       select
+            <include refid="Base_Column_List" />
+       from db_myweb.t_yh
+       where c_bh = #{_parameter}
+     </select>
+
+</mapper>
