@@ -25,14 +25,14 @@ import lombok.Setter;
 public class ResultVo<T> {
 
 	/**
-	 * 返回码，默认为0
+	 * 返回码，默认为1 成功
 	 */
-	private int code = 0;
+	private int code = 1;
 
 	/**
-	 * 消息
+	 * 返消息，默认为成功
 	 */
-	private String message;
+	private String message = "访问成功";
 
 	/**
 	 * 参数
@@ -86,6 +86,21 @@ public class ResultVo<T> {
 	public ResultVo(int code, String message, T data) {
 		this.code = code;
 		this.message = message;
+		this.data = data;
+	}
+	/**
+	 * 
+	 * ResultVo
+	 * 
+	 * @description 构造方法
+	 * @param code
+	 * @param message
+	 * @param data
+	 * @author xiangchunlin
+	 * @date 2018年4月19日 下午5:06:15
+	 * @version 1.0
+	 */
+	public ResultVo(T data) {
 		this.data = data;
 	}
 

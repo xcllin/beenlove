@@ -7,11 +7,11 @@
 package com.xcl.service.impl;
 
 /**
- * BaseService
- * @description TODO
+ * 
  * @author xiangchunlin
- * @date 2018年4月20日 上午9:29:11
- * @version 2.1
+ * @description baseService
+ * @date 2018年12月25日
+ * @version 1.0.0
  */
 public class BaseService {
 

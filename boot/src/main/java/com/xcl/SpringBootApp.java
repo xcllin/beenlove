@@ -30,13 +30,13 @@ import com.alibaba.druid.pool.DruidDataSource;
 @SpringBootApplication(exclude={DataSourceAutoConfiguration.class,HibernateJpaAutoConfiguration.class})
 @ServletComponentScan
 @ComponentScan(basePackages = {"com.xcl"})
-@MapperScan(basePackages = {"com.xcl.mapper"})
+@MapperScan(basePackages = {"com.xcl.mapper","com.xcl.mapperext"})
 public class SpringBootApp  {
 	/**
 	 * 
 	 * @author xiangchunlin
 	 * @description 使用阿里的数据源
-	 * @params @return
+	 * @params 
 	 * @return DataSource
 	 * @date 2018年12月4日
 	 * @version 1.0

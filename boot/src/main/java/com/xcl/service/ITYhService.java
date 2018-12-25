@@ -1,20 +1,20 @@
 /**
  * @projectName boot
  */
-package com.xcl.mapper;
+package com.xcl.service;
 
 import java.util.List;
-import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
+import com.xcl.vo.PageBean;
 import com.xcl.bean.TYh;
 
 /**
- * mapper类
- * @description mapper
+ * service接口类
+ * @description service
  * @author auto
  * @date 2018-12-25 14:04
  * @version 1.0
  */
-public interface TYhMapper {
+public interface ITYhService {
 
     /**
      * 插入一条数据
@@ -28,7 +28,7 @@ public interface TYhMapper {
 
     /**
      * 通过主键物理数据
-     * @param cbh 主键编号
+     * @param cBh 主键编号
      * @return 影响行数
      * @author auto
      * @date 2018-12-25 14:04
@@ -59,17 +59,28 @@ public interface TYhMapper {
      /**
       * 通过条件查询多条数据
       * @param tYh 查询条件
-      * @param pageBounds 分页条件
+      * @param page 分页条件 null不分页
       * @return 结果集
       * @author auto
       * @date 2018-12-25 14:04
       * @version 1.0
       */
-    public List<TYh> selectTYhsByQuery(TYh tYh, PageBounds pageBounds);
+    public List<TYh> selectTYhsByQuery(TYh tYh);
+    
+     /**
+      * 通过条件查询多条数据并分页
+      * @param tYh 查询条件
+      * @param page 分页条件 不能传null
+      * @return 结果集
+      * @author auto
+      * @date 2018-12-25 14:04
+      * @version 1.0
+      */
+    public PageBean<TYh> selectTYhsByQuery(PageBean<TYh> page);
 
     /**
      * 通过主键查询信息
-     * @param cbh 主键编号
+     * @param cBh 主键编号
      * @return
      * @author auto
      * @date 2018-12-25 14:04

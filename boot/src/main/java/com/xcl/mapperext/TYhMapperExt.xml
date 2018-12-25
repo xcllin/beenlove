@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xcl.mapperext.TYhMapperExt">
+    <!-- 定义基础返回集合 -->
+    <resultMap id="BaseResultMap" type="com.xcl.bean.TYh">
+        <id column="c_bh" jdbcType="CHAR" property="cbh" />
+        <result column="c_xm" jdbcType="VARCHAR" property="cxm" />
+        <result column="n_xb" jdbcType="INTEGER" property="nxb" />
+        <result column="d_csrq" jdbcType="DATE" property="dcsrq" />
+        <result column="c_xxdz" jdbcType="VARCHAR" property="cxxdz" />
+        <result column="n_zt" jdbcType="INTEGER" property="nzt" />
+        <result column="d_crsj" jdbcType="DATE" property="dcrsj" />
+        <result column="d_gxsj" jdbcType="DATE" property="dgxsj" />
+        <result column="c_zh" jdbcType="VARCHAR" property="czh" />
+        <result column="c_mm" jdbcType="VARCHAR" property="cmm" />
+      <!-- 扩展字段 -->
+    </resultMap>
+    
+    <!-- 基本字段定义 -->
+    <sql id="Base_Column_List" >
+        c_bh,c_xm,n_xb,d_csrq,c_xxdz,n_zt,d_crsj,d_gxsj,c_zh,c_mm
+        <!-- 扩展字段 -->
+    </sql>
+ 
+</mapper>
