@@ -2,7 +2,13 @@ package com.xcl.exceptions;
 
 import lombok.Getter;
 import lombok.Setter;
-
+/**
+ * 
+ * @author xiangchunlin
+ * @description 自定义异常
+ * @date 2018年12月25日
+ * @version 1.0.0
+ */
 @Getter
 @Setter
 public class BootException extends RuntimeException {

@@ -1,16 +1,9 @@
-/**
- * @author xiangchunlin
- * @description TODO
- * @date 2018年12月25日
- * @version 1.0.0
- */
 package com.xcl;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import io.swagger.annotations.ApiOperation;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
