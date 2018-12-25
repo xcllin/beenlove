@@ -1,7 +1,7 @@
-/boot/target
-/boot/.settings
-/boot/.tern-project
-/boot/.classpath
-/boot/log
-/boot/.project
-/boot/.factorypath
+/beenlove/target
+/beenlove/.settings
+/beenlove/.tern-project
+/beenlove/.classpath
+/beenlove/log
+/beenlove/.project
+/beenlove/.factorypath
